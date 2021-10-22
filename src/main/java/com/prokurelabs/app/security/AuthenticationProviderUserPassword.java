@@ -7,6 +7,8 @@ import io.micronaut.security.authentication.AuthenticationRequest;
 import io.micronaut.security.authentication.AuthenticationResponse;
 import jakarta.inject.Singleton;
 import org.reactivestreams.Publisher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
 
@@ -14,6 +16,8 @@ import java.util.Set;
 
 @Singleton
 public class AuthenticationProviderUserPassword implements AuthenticationProvider {
+    private static Logger logger = LoggerFactory.getLogger(AuthenticationProvider.class);
+
     @Override
     public Publisher<AuthenticationResponse> authenticate(@Nullable HttpRequest<?> httpRequest,
                                                           AuthenticationRequest<?, ?> authenticationRequest) {

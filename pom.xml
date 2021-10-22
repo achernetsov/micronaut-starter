@@ -17,7 +17,7 @@
         <packaging>jar</packaging>
         <jdk.version>17</jdk.version>
         <release.version>17</release.version>
-        <micronaut.version>3.1.0</micronaut.version>
+        <micronaut.version>3.1.1</micronaut.version>
         <exec.mainClass>com.prokurelabs.app.Application</exec.mainClass>
         <micronaut.runtime>netty</micronaut.runtime>
     </properties>
@@ -86,11 +86,9 @@
             <groupId>io.micronaut.redis</groupId>
             <artifactId>micronaut-redis-lettuce</artifactId>
         </dependency>
-
-        <!-- JPA -->
         <dependency>
-            <groupId>io.micronaut.sql</groupId>
-            <artifactId>micronaut-hibernate-jpa</artifactId>
+            <groupId>io.micronaut.data</groupId>
+            <artifactId>micronaut-data-hibernate-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>io.micronaut.sql</groupId>
@@ -124,6 +122,12 @@
             <artifactId>micronaut-test-junit5</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>3.9.0</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
@@ -145,6 +149,11 @@
                         <path>
                             <groupId>io.micronaut</groupId>
                             <artifactId>micronaut-http-validation</artifactId>
+                            <version>${micronaut.version}</version>
+                        </path>
+                        <path>
+                            <groupId>io.micronaut.data</groupId>
+                            <artifactId>micronaut-data-processor</artifactId>
                             <version>${micronaut.version}</version>
                         </path>
                     </annotationProcessorPaths>

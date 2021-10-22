@@ -4,22 +4,26 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "order")
-public class Order {
-    private Order() {
+@Table(name = "order_draft")
+public class OrderDraft {
+    private OrderDraft() {
     }
 
-    public Order(@NotNull String ownerId) {
+    public OrderDraft(@NotNull String ownerId, String description) {
         this.ownerId = ownerId;
+        this.description = description;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
     @NotNull
-    @Column(name = "name", nullable = false, unique = true)
-    String ownerId;
+    @Column(name = "owner_id", nullable = false, length = 50)
+    private String ownerId;
+
+    @Column
+    private String description;
 
     public Long getId() {
         return id;
@@ -37,11 +41,20 @@ public class Order {
         this.ownerId = ownerId;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
-        return "Order{" +
+        return "OrderDraft{" +
                 "id=" + id +
                 ", ownerId='" + ownerId + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
