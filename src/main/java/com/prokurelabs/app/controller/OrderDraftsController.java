@@ -12,12 +12,18 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
+import io.micronaut.security.annotation.Secured;
+import io.micronaut.views.View;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import java.net.URI;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+//@RolesAllowed({"ROLE_CUSTOMER"})
+@Secured({"ROLE_CUSTOMER"})
 @ExecuteOn(TaskExecutors.IO)
 @Controller("/orderDrafts")
 public class OrderDraftsController {
@@ -30,6 +36,14 @@ public class OrderDraftsController {
 
     public OrderDraftsController(OrderDraftsRepository orderDraftsRepository) {
         this.orderDraftsRepository = orderDraftsRepository;
+    }
+
+    @Get()
+    @View("orderDrafts")
+    public Map<String, Object> orderDrafts() {
+        Map<String, Object> model = new HashMap<>();
+        model.put("orderDrafts", List.of());
+        return model;
     }
 
     @Get("/{id}")

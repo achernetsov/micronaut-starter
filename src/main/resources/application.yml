@@ -6,6 +6,9 @@ micronaut:
     redirect:
       login-success: /
       login-failure: /login/authFailed
+    endpoints:
+      logout:
+        get-allowed: true
   session:
     http:
       redis:
