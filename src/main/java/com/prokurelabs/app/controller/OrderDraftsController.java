@@ -12,7 +12,6 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
-import io.micronaut.security.annotation.Secured;
 import io.micronaut.views.View;
 
 import javax.annotation.security.RolesAllowed;
@@ -22,8 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//@RolesAllowed({"ROLE_CUSTOMER"})
-@Secured({"ROLE_CUSTOMER"})
+@RolesAllowed({"ROLE_CUSTOMER"})
 @ExecuteOn(TaskExecutors.IO)
 @Controller("/orderDrafts")
 public class OrderDraftsController {
