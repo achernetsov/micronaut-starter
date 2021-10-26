@@ -36,12 +36,18 @@ public class OrderDraftsController {
         this.orderDraftsRepository = orderDraftsRepository;
     }
 
-    @Get()
+    @Get
     @View("orderDrafts")
     public Map<String, Object> orderDrafts() {
         Map<String, Object> model = new HashMap<>();
         model.put("orderDrafts", List.of());
         return model;
+    }
+
+    @Get("/new")
+    @View("orderDraft")
+    public Map<String, Object> newOrderDraft(){
+        return new HashMap<>();
     }
 
     @Get("/{id}")
