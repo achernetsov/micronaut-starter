@@ -5,7 +5,6 @@ Starter project:
 - security: sessions security, sessions stored in redis (https://micronaut-projects.github.io/micronaut-redis/latest/guide/#sessions)
 - JPA: h2, hikariCP
 - SSR on pebble templates https://pebbletemplates.io/
-- twitter bootstrap
 - jdk 17
 - maven
 
@@ -22,13 +21,6 @@ cd env/local && docker-compose up -d
 ```shell
 ./mvnw mn:run
 ```
-
-# TODO
-
-- [X] user session inmemory
-- [X] user order in h2
-- [ ] controller + test
-- [ ] bootstrap
 
 # Security
 
