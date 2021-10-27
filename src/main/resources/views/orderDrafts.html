@@ -6,6 +6,21 @@
 
 <h1>Order drafts</h1>
 
+{% if orderDrafts.size>0 %}
+    <table>
+        <tr>
+            <th>#</th>
+            <th>description</th>
+        </tr>
+    {% for o in orderDrafts %}
+        <tr>
+            <td>{{o.id}}</td>
+            <td>{{o.description}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endif %}
+
 <a href="/orderDrafts/new">New</a>
 
 {% endblock %}

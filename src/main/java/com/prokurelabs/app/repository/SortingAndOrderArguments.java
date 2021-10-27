@@ -28,7 +28,13 @@ public class SortingAndOrderArguments {
     private String order;
 
     public SortingAndOrderArguments() {
+    }
 
+    public SortingAndOrderArguments(@Nullable Integer offset, @Nullable Integer max, @Nullable String sort, @Nullable String order) {
+        this.offset = offset;
+        this.max = max;
+        this.sort = sort;
+        this.order = order;
     }
 
     public Optional<Integer> getOffset() {

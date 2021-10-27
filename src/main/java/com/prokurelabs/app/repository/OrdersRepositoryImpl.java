@@ -46,7 +46,7 @@ public class OrdersRepositoryImpl implements OrderDraftsRepository {
 
     @Override
     public List<OrderDraft> findAll(@NotNull SortingAndOrderArguments args) {
-        String qlString = "SELECT o FROM Order as o";
+        String qlString = "SELECT o FROM OrderDraft as o";
         if (args.getOrder().isPresent() && args.getSort().isPresent() && VALID_PROPERTY_NAMES.contains(args.getSort().get())) {
             qlString += " ORDER BY o." + args.getSort().get() + " " + args.getOrder().get().toLowerCase();
         }

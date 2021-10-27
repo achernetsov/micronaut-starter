@@ -6,6 +6,10 @@
     <title>{% block title %}My Website{% endblock %}</title>
 </head>
 <body>
+<div id="profile"></div>
+{% if loggedIn %}
+<a href="/logout">logout</a>
+{% endif %}
 <div id="content">
     {% block content %}{% endblock %}
 </div>
