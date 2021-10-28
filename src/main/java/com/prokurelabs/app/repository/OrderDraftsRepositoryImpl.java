@@ -14,14 +14,14 @@ import java.util.Optional;
 
 // https://guides.micronaut.io/latest/micronaut-jpa-hibernate-gradle-java.html#solution
 @Singleton
-public class OrdersRepositoryImpl implements OrderDraftsRepository {
+public class OrderDraftsRepositoryImpl implements OrderDraftsRepository {
     private static final Integer MAX_PAGE_SIZE = 50;
 
     private final EntityManager entityManager;
 
     private final static List<String> VALID_PROPERTY_NAMES = List.of("id");
 
-    public OrdersRepositoryImpl(EntityManager entityManager) {
+    public OrderDraftsRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
