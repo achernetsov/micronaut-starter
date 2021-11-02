@@ -7,6 +7,7 @@ Starter project:
 - SSR on pebble templates https://pebbletemplates.io/
 - jdk 17
 - maven
+- twitter bootstrap
 
 # Running
 
