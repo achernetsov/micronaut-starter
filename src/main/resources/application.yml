@@ -9,6 +9,34 @@ micronaut:
     endpoints:
       logout:
         get-allowed: true
+    # allowing static resources, see router
+    # https://micronaut-projects.github.io/micronaut-security/latest/guide/#interceptUrlMap
+    intercept-url-map:
+      - pattern: /assets/**
+        http-method: GET
+        access:
+          - isAnonymous()
+      - pattern: /js/**
+        http-method: GET
+        access:
+          - isAnonymous()
+      - pattern: /css/**
+        http-method: GET
+        access:
+          - isAnonymous()
+  # https://micronaut-projects.github.io/micronaut-openapi/latest/guide/index.html#mappingPath
+  router:
+    static-resources:
+      assets:
+        #        enabled: true
+        paths: classpath:views/assets
+        mapping: /assets/**
+      js:
+        paths: classpath:views/js
+        mapping: /js/**
+      css:
+        paths: classpath:views/css
+        mapping: /css/**
   session:
     http:
       redis:

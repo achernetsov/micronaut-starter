@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content="Procurement on blockchain"/>
+    <meta name="author" content="Artyom Chernetsov"/>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
 
     <title>{% block title %}My Website{% endblock %}</title>
 </head>
@@ -10,7 +15,7 @@
 {% if loggedIn %}
 <a href="/logout">logout</a>
 {% endif %}
-<div id="content">
+<div class="container" id="content">
     {% block content %}{% endblock %}
 </div>
 <div id="footer">
@@ -19,5 +24,7 @@
     Copyright 2021 | archertech.ru
     {% endblock %}
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/scripts.js"></script>
 </body>
 </html>
