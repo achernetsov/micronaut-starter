@@ -59,6 +59,9 @@ jpa:
         hbm2ddl:
           auto: update
         show_sql: true
+# documentation says it's needed, but works without
+#    entity-scan:
+#      packages: 'com.prokurelabs.app.model'
 
 redis:
   uri: redis://localhost

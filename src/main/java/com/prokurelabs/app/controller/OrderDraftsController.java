@@ -23,6 +23,8 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @RolesAllowed({"ROLE_CUSTOMER"})
 @ExecuteOn(TaskExecutors.IO)
@@ -44,8 +46,11 @@ public class OrderDraftsController {
     @View("orderDrafts")
     public Map<String, Object> orderDrafts() {
         Map<String, Object> model = new HashMap<>();
-        SortingAndOrderArguments args = new SortingAndOrderArguments();
-        List<OrderDraft> orderDrafts = orderDraftsRepository.findAll(args);
+//        SortingAndOrderArguments args = new SortingAndOrderArguments();
+//        List<OrderDraft> orderDrafts = orderDraftsRepository.findAll(args);
+        List<OrderDraft> orderDrafts = StreamSupport
+                .stream(orderDraftsRepository.findAll().spliterator(), false)
+                .collect(Collectors.toList());
         model.put("orderDrafts", orderDrafts);
         model.put("loggedIn", true);
         return model;
@@ -65,10 +70,10 @@ public class OrderDraftsController {
     }
 
     // TODO use this for ajax requests
-    @Get(value = "/list{?args*}")
-    public List<OrderDraft> list(@Valid SortingAndOrderArguments args) {
-        return orderDraftsRepository.findAll(args);
-    }
+//    @Get(value = "/list{?args*}")
+//    public List<OrderDraft> list(@Valid SortingAndOrderArguments args) {
+//        return orderDraftsRepository.findAll(args);
+//    }
 
     // TODO use this for ajax requests
     @Post("/save")
